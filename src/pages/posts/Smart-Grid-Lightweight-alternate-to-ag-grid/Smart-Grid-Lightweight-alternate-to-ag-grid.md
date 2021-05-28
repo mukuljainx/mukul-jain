@@ -2,7 +2,7 @@
 slug: "/blog/Smart-Grid-A-Lightweight-virtualized-grid"
 date: "2020-03-08"
 title: "Smart Grid: A Lightweight virtualized grid."
-preview: "Journey from scrollable div to virtualized pinned grid."
+preview: "Journey from scroll able div to virtualized pinned grid."
 ---
 
 > Live Demo: [Smart Grid](https://mukuljainx.github.io/smart-grid/)
