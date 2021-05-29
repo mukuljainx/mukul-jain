@@ -1,7 +1,7 @@
 ---
-slug: "/blog/How-to-Create-a-2-d-draggable-grid-with-react-spring"
+slug: "/blog/How-to-Create-a-2-d-draggable-grid-with-react-spring-part-1"
 date: "2021-05-29"
-title: "How to Create a 2D draggable grid with react-spring"
+title: "How to Create a 2D draggable grid with react-spring | Part 1"
 preview: "Spread operator is great, but does it have any downside? Let's check it out with different looping methods."
 ---
 
@@ -19,8 +19,8 @@ We will be writing most of the things from scratch to see how things work under 
 What we will cover
 
 1. Creating a single draggable block
-2. Creating 2D blocks layout with custom hook useDraggable [Before 2nd June]
-3. Rearranging blocks using react-spring [Before 6th June]
+2. Creating 2D blocks layout with custom hook useDraggable [2nd June]
+3. Rearranging blocks using react-spring [6th June]
 
 # Creating a single draggable block
 
@@ -155,6 +155,33 @@ Try it [here](https://uequ3.csb.app/).
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
+
+## It's buggy
+
+If you will move the pointer fast enough the block will be lost in the way as now the pointer has crossed the block, `onMouseMove` doesn't triggers anymore, hence no more dragging, a simple way to fix it is add `mousemove` and `mouseup` to document or the parent div.
+
+To work with document we have to use `addEventListener` and with parent we can move our state upward and pass `handleMouseUp` and `handleMouseMove` to parent div. Something like this
+
+```jsx
+<div
+  style={{ border: "1px solid", height: "100%", width: "100%" }}
+  onMouseMove={handleMouseMove}
+  onMouseUp={handleMouseUp}
+>
+  <Block
+    style={{ top: coordinate.block.y, left: coordinate.block.x }}
+    onMouseDown={handleMouseDown}
+  />
+</div>
+```
+
+[Handlers on Parent](https://gq1co.csb.app/)
+
+[Events on Document](https://kvvmp.csb.app/)
+
+**So which one?** The parent one, there is very simple reason behind, not all area of app is going to be draggable probably one section of it so if mouse moves out the block will stay inside the parent div but in case of events we have to check that separately. Other reason is this is more "react way" of doing it.
+
+That's all for today! Next up we will move our code responsible for dragging into a hook and will create a 2D layout.
 
 That's all for today! Next up we will move our code responsible for dragging into a hook and will create a 2D layout.
 
