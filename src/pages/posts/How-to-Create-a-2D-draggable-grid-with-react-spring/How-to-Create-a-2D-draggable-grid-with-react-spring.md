@@ -1,5 +1,5 @@
 ---
-slug: "/blog/How-to-Create-a-2D-draggable-grid-with-react-spring"
+slug: "/blog/How-to-Create-a-2-d-draggable-grid-with-react-spring"
 date: "2021-05-29"
 title: "How to Create a 2D draggable grid with react-spring"
 preview: "Spread operator is great, but does it have any downside? Let's check it out with different looping methods."
