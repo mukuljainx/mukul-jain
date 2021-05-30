@@ -1,0 +1,70 @@
+stackbitVersion: ~0.3.0
+ssgName: gatsby
+nodeVersion: '12'
+publishDir: public
+dataDir: src/pages/projects
+pagesDir: src/pages/posts
+models:
+  post:
+    type: page
+    label: Post
+    match: '**/*'
+    fields:
+      - type: string
+        name: slug
+        label: Slug
+      - type: date
+        name: date
+        label: Date
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: preview
+        label: Preview
+  data:
+    type: data
+    label: Data
+    file: data.json
+    isList: true
+    items:
+      type: object
+      fields:
+        - type: image
+          name: img
+          label: Img
+        - type: string
+          name: altImg
+          label: Alt Img
+        - type: string
+          name: name
+          label: Name
+        - type: string
+          name: stack
+          label: Stack
+        - type: string
+          name: what
+          label: What
+        - type: string
+          name: websiteLink
+          label: Website Link
+        - type: string
+          name: githubLink
+          label: Github Link
+        - type: string
+          name: detailLink
+          label: Detail Link
+        - type: string
+          name: detailTextColor
+          label: Detail Text Color
+        - type: string
+          name: id
+          label: Id
+        - type: string
+          name: info
+          label: Info
+        - type: list
+          name: detail
+          label: Detail
+          items:
+            type: string
