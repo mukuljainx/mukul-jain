@@ -2,7 +2,7 @@
 slug: "/blog/How-to-Create-a-2-d-draggable-grid-with-react-spring-part-1"
 date: "2021-05-29"
 title: "How to Create a 2D draggable grid with react-spring | Part 1"
-preview: "Spread operator is great, but does it have any downside? Let's check it out with different looping methods."
+preview: "We will start with creating a single draggable block."
 ---
 
 In this article we will create a 2D grid were each item can be dragged and moved to a different place, [quick demo](https://gbdgu.csb.app/).
@@ -180,8 +180,6 @@ To work with document we have to use `addEventListener` and with parent we can m
 [Events on Document](https://kvvmp.csb.app/)
 
 **So which one?** The parent one, there is very simple reason behind, not all area of app is going to be draggable probably one section of it so if mouse moves out the block will stay inside the parent div but in case of events we have to check that separately. Other reason is this is more "react way" of doing it.
-
-That's all for today! Next up we will move our code responsible for dragging into a hook and will create a 2D layout.
 
 That's all for today! Next up we will move our code responsible for dragging into a hook and will create a 2D layout.
 
