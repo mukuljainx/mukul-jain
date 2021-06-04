@@ -1,6 +1,6 @@
 ---
 slug: "/blog/How-to-Create-a-2-d-draggable-grid-with-react-spring-part-2"
-date: "2021-06-01"
+date: "2021-06-03"
 title: "How to Create a 2D draggable grid with react-spring | Part 2"
 preview: "Create a grid of draggable blocks!"
 ---
