@@ -1,5 +1,5 @@
 ---
-slug: "/blog/React-useEffect-The-basics-and-the-secrets"
+slug: "/blog/React-use-Effect-The-basics-and-the-secrets"
 date: "2021-06-04"
 title: "React useEffect: The basics and the secrets"
 preview: "React useEffect Wikipedia ;)"
