@@ -30,9 +30,9 @@ const [count, setCount] = useState(0)
 
 useEffect(() => {
   // Not a good practice, just for the sake of example
-  document.body.style.background = 'blue'
+  document.body.style.background = 'red'
     return () => {
-      document.body.style.background = 'red'
+      document.body.style.background = 'blue'
     };
 })
 
@@ -46,7 +46,7 @@ Most people learn `useEffect` by relating it to `componentDidMount`, `componentD
 
 After the first render `useEffect` will trigger and we can see background color as red and when the state changes the component will re-render hence `useEffect` will trigger again after the render but before that, cleanup method will trigger as shown in this gif.
 
-![useEffect Demo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/1jztqyinu64nemgjhwyk.gif)
+![useEffect Demo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6nwtya5qdl9hlqbe8jew.gif)
 
 **Why?**: To keep the concern limited at one place, Assume cleanup doesn't run before every useEffect and let's say you are using `setTimeout` in the `useEffect`, if there is second `useEffect` call you have to cancel the first timer or there might be a memory leak, a possible way to do it is
 
@@ -76,7 +76,7 @@ useEffect(() => {
 
 ### Optimize using the dependency array
 
-There might be a case where you don't want it to run the useEffect on specific condition for this useEffect (all the hooks) have another parameter known as dependency array, where you can specify the dependent parameter like `[count]`, useEffect will trigger only if `count` changes and cleanup method too.
+There might be a case where you don't want it to run every time but on specific condition for this useEffect (all the hooks) have another parameter known as dependency array, where you can specify the dependent parameter like `[count]`, useEffect will trigger only if `count` changes and cleanup method too.
 
 ### Empty dependency array
 
@@ -93,4 +93,4 @@ useEffect(() => {
 
 Last but not least due to closure cleanup will have values of previous state when `useEffect` was executed.
 
-You can try `useEffect` [here](https://codesandbox.io/s/understanding-use-effect-hx83v)
+You can play with `useEffect` [here](https://codesandbox.io/s/understanding-use-effect-hx83v)
