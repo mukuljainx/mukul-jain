@@ -20,11 +20,20 @@ export default function Template({ data }) {
           <div className="blog-post-header">
             <h1 className="no-margin">{frontmatter.title}</h1>
             <p className="no-margin" style={{ fontSize: 16 }}>
-              {frontmatter.date}
+              {frontmatter.date} • {frontmatter.readingTime} mins read
             </p>
           </div>
           <div className="blog-post-content">
             <div dangerouslySetInnerHTML={{ __html: html }} />
+            {frontmatter.url && (
+              <p>
+                Sourced from{" "}
+                <a rel="noreferrer" target="_blank" href={frontmatter.url}>
+                  dev.to
+                </a>{" "}
+                🧑‍💻 👩‍💻
+              </p>
+            )}
           </div>
         </div>
       </main>
@@ -41,6 +50,10 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         slug
         title
+        commentsCount
+        reactionsCount
+        readingTime
+        url
       }
     }
   }

@@ -18,7 +18,12 @@ const Projects = ({ data }) => {
                 <Link to={post.frontmatter.slug.toLowerCase()}>
                   <h3 className="no-margin">{post.frontmatter.title}</h3>
                 </Link>
-                <p className="meta no-margin">{post.frontmatter.date}</p>
+                <p className="meta no-margin">
+                  {post.frontmatter.date}{" "}
+                  {post.frontmatter.readingTime && (
+                    <>• {post.frontmatter.readingTime} mins Read</>
+                  )}
+                </p>
                 <p className="preview">{post.frontmatter.preview}</p>
               </div>
             ))}
@@ -42,6 +47,9 @@ export const query = graphql`
           slug
           date(formatString: "DD MMMM YYYY")
           preview
+          commentsCount
+          reactionsCount
+          readingTime
         }
       }
     }
