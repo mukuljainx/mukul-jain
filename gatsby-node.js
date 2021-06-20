@@ -11,7 +11,14 @@ const getAllArticles = async (listing) => {
       })
     );
 
-    resolve(articles.map((x) => x.value.data));
+    resolve(
+      articles.map((x, i) => {
+        if (!x.value) {
+          console.log(`FETCHING FAILED: ${listing[i].title}`);
+        }
+        return x.value ? x.value.data : undefined;
+      })
+    );
   });
 };
 
@@ -28,6 +35,9 @@ exports.onPreInit = async () => {
       const articles = await getAllArticles(listing);
 
       articles.forEach((article) => {
+        if (!article) {
+          return;
+        }
         const meta = {
           slug: `/blog/${article.slug}`,
           date: article.created_at,
@@ -53,9 +63,8 @@ exports.onPreInit = async () => {
             article.body_markdown,
           "utf8"
         );
-
-        resolve();
       });
+      resolve();
     });
   } catch (e) {
     console(`\n\n\n${e}\n\n\n`);
