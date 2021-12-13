@@ -26,14 +26,6 @@ const Projects = ({ data }) => {
               >
                 Github
               </a>
-              <a
-                rel="noreferrer"
-                className="underline"
-                href={twitter}
-                target="_blank"
-              >
-                Twitter
-              </a>
             </div>
           </div>
         </div>
